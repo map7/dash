@@ -40,20 +40,8 @@ body {
   grid-template-columns: 1fr 2fr;
   gap: 10px;
 }
-.links a {
-  margin: 10px 0;
-  padding: 10px;
-  background-color: #000;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
-}
 .links a:hover {
   background-color: #555;
-}
-h1 {
-  color: white;
 }
 .search-container{
   width: 100%;
@@ -76,10 +64,6 @@ h1 {
 }
 .clock{
   font-size: 3em;
-  margin: 20px 0;
-}
-#weather {
-  font-size: 1.5em;
   margin: 20px 0;
 }
 form {
