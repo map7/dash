@@ -1,4 +1,88 @@
-<div>
-  <h1 class="font-bold text-4xl">Dashboard#index</h1>
-  <p>Find me in app/views/dashboard/index.html.erb</p>
+<!-- Left Panel: Links and Descriptions -->
+<div class="left-panel">
+  <h1>Tramontana System Menu</h1>
+  <div class="links">
+    <a href="https://quickbooks.com.au" id="link1">1. Quickbooks</a>
+    <div class="description">Quickbooks Accounting / Payroll</div>
+    
+    <a href="https://reportcraft.tramontana.com.au" id="link2">2. Report Craft</a>
+    <div class="description">Quickbooks Reports</div>
+    
+    <a href="http://pais.tramontana.com.au" id="link3">3. PAIS Legacy</a>
+    <div class="description">PAIS text based Accounting System</div>
+    
+    <a href="https://qbpaislegacy.tramontana.com.au" id="link4">4. QB PAIS Legacy</a>
+    <div class="description">Quickbooks to PAIS Legacy</div>
+    
+    <a href="https://xeropaislegacy.tramontana.com.au/" id="link5">5. Xero PAIS Legacy</a>
+    <div class="description">Xero to PAIS Legacy</div>
+    
+    <a href="https://reports.tramontana.com.au/" id="link6">6. PAIS Legacy Reporting</a>
+    <div class="description">Styled reports from PAIS Legacy</div>
+    
+    <a href="https://invoice.tramontana.com.au/" id="link7">7. PAIS Legacy Invoices</a>
+    <div class="description">Styled invoices from PAIS Legacy</div>
+    
+    <a href="https://go.lodgeit.net.au/signin" id="link8">8. LodgeIT</a>
+    <div class="description">Tax Software</div>
+    
+    <a href="https://secure.waive.com.au/login" id="link9">9. Waive</a>
+    <div class="description">ASIC Software</div>
+    
+    <!-- <a href="" id="link0">0. </a>
+         <div class="description"></div> -->
+  </div>
 </div>
+
+<!-- Right Panel: Google Search, Clock, Weather -->
+<div class="right-panel">
+  <div class="logo">
+    <img src="https://tramontana.com.au/letterhead_logo_big.png" alt="logo" width="130" />
+  </div>
+
+  <div class="search-container">
+    <form action="https://www.google.com/search" method="get">
+      <input class="search" type="text" name="q" placeholder="Google Search">
+      <button class="btn-submit" type="submit">Search</button>
+    </form>
+  </div>
+  
+  <div class="clock" id="clock"></div>
+</div>
+
+<script>
+ // Update Clock
+ function updateClock() {
+   const now = new Date();
+   const timeString = now.toLocaleTimeString();
+   document.getElementById('clock').innerText = timeString;
+ }
+ setInterval(updateClock, 1000);
+ updateClock();
+
+ // Hotkey function for links (1, 2, 3)
+ document.addEventListener('keydown', function(event) {
+   if (event.key === '1') {
+     window.location.href = document.getElementById('link1').href;
+   } else if (event.key === '2') {
+     window.location.href = document.getElementById('link2').href;
+   } else if (event.key === '3') {
+     window.location.href = document.getElementById('link3').href;
+   } else if (event.key === '4') {
+     window.location.href = document.getElementById('link4').href;
+   } else if (event.key === '5') {
+     window.location.href = document.getElementById('link5').href;
+   } else if (event.key === '6') {
+     window.location.href = document.getElementById('link6').href;
+   } else if (event.key === '7') {
+     window.location.href = document.getElementById('link7').href;
+   } else if (event.key === '8') {
+     window.location.href = document.getElementById('link8').href;
+   } else if (event.key === '9') {
+     window.location.href = document.getElementById('link9').href;
+   } else if (event.key === '0') {
+     window.location.href = document.getElementById('link0').href;
+   }
+ });
+</script>
+
