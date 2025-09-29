@@ -5,55 +5,55 @@
   <div class="links text-white">
     <a href="https://quickbooks.com.au"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link1">1. Quickbooks</a>
+       id="1">1. Quickbooks</a>
     
     <div class="description">Quickbooks Accounting / Payroll</div>
     
     <a href="https://reportcraft.tramontana.com.au"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link2">2. Report Craft</a>
+       id="2">2. Report Craft</a>
     
     <div class="description">Quickbooks Reports</div>
     
     <a href="http://pais.tramontana.com.au"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link3">3. PAIS Legacy</a>
+       id="3">3. PAIS Legacy</a>
     
     <div class="description">PAIS text based Accounting System</div>
     
     <a href="https://qbpaislegacy.tramontana.com.au"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link4">4. QB PAIS Legacy</a>
+       id="4">4. QB PAIS Legacy</a>
     
     <div class="description">Quickbooks to PAIS Legacy</div>
     
     <a href="https://xeropaislegacy.tramontana.com.au/"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link5">5. Xero PAIS Legacy</a>
+       id="5">5. Xero PAIS Legacy</a>
     
     <div class="description">Xero to PAIS Legacy</div>
     
     <a href="https://reports.tramontana.com.au/"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link6">6. PAIS Legacy Reporting</a>
+       id="6">6. PAIS Legacy Reporting</a>
     
     <div class="description">Styled reports from PAIS Legacy</div>
     
     <a href="https://invoice.tramontana.com.au/"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link7">7. PAIS Legacy Invoices</a>
+       id="7">7. PAIS Legacy Invoices</a>
     
     <div class="description">Styled invoices from PAIS Legacy</div>
     
     <a href="https://go.lodgeit.net.au/signin"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link8">8. LodgeIT</a>
+       id="8">8. LodgeIT</a>
     
     <div class="description">Tax Software</div>
     
     <a href="https://secure.waive.com.au/login"
        class="bg-black p-3 m-1 rounded-sm"
-       id="link9">9. Waive</a>
+       id="9">9. Waive</a>
     
     <div class="description">ASIC Software</div>
     
@@ -90,27 +90,7 @@
 
  // Hotkey function for links (1, 2, 3)
  document.addEventListener('keydown', function(event) {
-   if (event.key === '1') {
-     window.location.href = document.getElementById('link1').href;
-   } else if (event.key === '2') {
-     window.location.href = document.getElementById('link2').href;
-   } else if (event.key === '3') {
-     window.location.href = document.getElementById('link3').href;
-   } else if (event.key === '4') {
-     window.location.href = document.getElementById('link4').href;
-   } else if (event.key === '5') {
-     window.location.href = document.getElementById('link5').href;
-   } else if (event.key === '6') {
-     window.location.href = document.getElementById('link6').href;
-   } else if (event.key === '7') {
-     window.location.href = document.getElementById('link7').href;
-   } else if (event.key === '8') {
-     window.location.href = document.getElementById('link8').href;
-   } else if (event.key === '9') {
-     window.location.href = document.getElementById('link9').href;
-   } else if (event.key === '0') {
-     window.location.href = document.getElementById('link0').href;
-   }
+   document.getElementById(event.key).click();
  });
 </script>
 
