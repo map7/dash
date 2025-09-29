@@ -56,8 +56,18 @@
        id="9">9. Waive</a>
     
     <div class="description">ASIC Software</div>
+
+    <%= link_to "X. Log Out",
+                session_path,
+                {
+                  id: 'x',
+                  class: "bg-black p-3 m-1 rounded-sm",
+                  "data-turbo-method": :delete
+                } %>
+        
+    <div class="description">Logout of Dash</div>
     
-    <!-- <a href="" id="link0">0. </a>
+    <!-- <a href="" id="0">0. </a>
          <div class="description"></div> -->
   </div>
 </div>
