@@ -1,91 +1,51 @@
-<!-- Left Panel: Links and Descriptions -->
-<div class="left-panel">
-  <h1 class="text-3xl text-white pb-10">Tramontana Dash</h1>
+<div class="flex w-screen">
+  <div class="w-1/2 bg-[#333] p-5 ">
+    <h1 class="text-3xl text-white pb-10">Tramontana Dash <%= link_to "EDIT", apps_path, class: 'text-sm' %></h1>
 
-  <div class="links text-white">
-    <a href="https://quickbooks.com.au"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="1">1. Quickbooks</a>
-    
-    <div class="description">Quickbooks Accounting / Payroll</div>
-    
-    <a href="https://reportcraft.tramontana.com.au"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="2">2. Report Craft</a>
-    
-    <div class="description">Quickbooks Reports</div>
-    
-    <a href="http://pais.tramontana.com.au"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="3">3. PAIS Legacy</a>
-    
-    <div class="description">PAIS text based Accounting System</div>
-    
-    <a href="https://qbpaislegacy.tramontana.com.au"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="4">4. QB PAIS Legacy</a>
-    
-    <div class="description">Quickbooks to PAIS Legacy</div>
-    
-    <a href="https://xeropaislegacy.tramontana.com.au/"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="5">5. Xero PAIS Legacy</a>
-    
-    <div class="description">Xero to PAIS Legacy</div>
-    
-    <a href="https://reports.tramontana.com.au/"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="6">6. PAIS Legacy Reporting</a>
-    
-    <div class="description">Styled reports from PAIS Legacy</div>
-    
-    <a href="https://invoice.tramontana.com.au/"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="7">7. PAIS Legacy Invoices</a>
-    
-    <div class="description">Styled invoices from PAIS Legacy</div>
-    
-    <a href="https://go.lodgeit.net.au/signin"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="8">8. LodgeIT</a>
-    
-    <div class="description">Tax Software</div>
-    
-    <a href="https://secure.waive.com.au/login"
-       class="bg-black p-3 m-1 rounded-sm"
-       id="9">9. Waive</a>
-    
-    <div class="description">ASIC Software</div>
+    <% @apps.each_with_index do |app,i| %>
 
-    <%= link_to "X. Log Out",
-                session_path,
-                {
-                  id: 'x',
-                  class: "bg-black p-3 m-1 rounded-sm",
-                  "data-turbo-method": :delete
-                } %>
-        
-    <div class="description">Logout of Dash</div>
+      <div class="w-full flex pb-5">
+        <a href="<%= app.url %>" id="<%= i %>" class="w-1/3">
+          <div class="w-full bg-black p-3 m-1 rounded-sm text-white">
+            <%= i %>. <%= app.name %>
+          </div>
+        </a>
+
+        <div class="w-2/3 pl-5 pt-3 m-1 text-white">
+          <%= app.description %>
+        </div>
+      </div>
+      
+    <% end %>
+
+    <div class="w-full flex">
+      <%= link_to "X. Log Out",
+                  session_path,
+                  {
+                    id: 'x',
+                    class: "w-1/3 bg-black p-3 m-1 rounded-sm text-white",
+                    "data-turbo-method": :delete
+                  } %>
     
-    <!-- <a href="" id="0">0. </a>
-         <div class="description"></div> -->
+      <div class="w-2/3 pl-4 pt-3 m-1 text-white">Logout of Dash</div>
+    </div>
+    
   </div>
-</div>
+  <div class="w-1/2">
+    <div class="float-right">
+      <img src="https://tramontana.com.au/letterhead_logo_big.png" alt="logo" width="130" />
 
-<!-- Right Panel: Google Search, Clock, Weather -->
-<div class="right-panel">
-  <div class="logo">
-    <img src="https://tramontana.com.au/letterhead_logo_big.png" alt="logo" width="130" />
-  </div>
+    </div>
 
-  <div class="search-container">
-    <form action="https://www.google.com/search" method="get">
-      <input class="search" type="text" name="q" placeholder="Google Search">
-      <button class="btn-submit" type="submit">Search</button>
-    </form>
+    <div class="pt-80 w-full text-center">
+      <form action="https://www.google.com/search" method="get">
+        <input class=" w-1/2 bg-white p-2" type="text" name="q" placeholder="Google Search">
+        <button class="bg-green-500 p-2" type="submit">Search</button>
+      </form>
+    </div>
+    
+    <div class="text-5xl pt-30 w-full text-center" id="clock"></div>
   </div>
-  
-  <div class="clock" id="clock"></div>
 </div>
 
 <script>
@@ -93,7 +53,11 @@
  function updateClock() {
    const now = new Date();
    const timeString = now.toLocaleTimeString();
-   document.getElementById('clock').innerText = timeString;
+   const clock = document.getElementById('clock');
+   if (clock != null) {
+     clock.innerText = timeString;  
+   }
+   
  }
  setInterval(updateClock, 1000);
  updateClock();
