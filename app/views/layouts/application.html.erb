@@ -23,15 +23,6 @@
   </head>
 
   <body>
-    <div class="w-screen flex flex-row p-5">
-      <nav class="w-30">
-        <h1 class="font-bold text-4xl pb-5">Menu</h1>
-        <p class="pb-2"><%= link_to "Dash", dashboard_index_path %></p>
-        <p class="pb-2"><%= link_to "Apps", apps_path %></p>
-      </nav>
-      <div class="w-full">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
   </body>
 </html>
