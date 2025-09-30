@@ -1,22 +1,21 @@
-<div id="<%= dom_id app %>" class="w-full sm:w-auto my-5 space-y-5">
-  <div>
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= app.name %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= app.description %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Url:</strong>
-    <%= app.url %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Global login:</strong>
-    <%= app.global_login %>
-  </div>
-  <div>
-    <strong class="block font-medium mb-1">Global password:</strong>
-    <%= app.global_password %>
+<div id="<%= dom_id(app) %>" class="w-full max-w-xl my-6">
+  <div class="rounded-lg border p-5">
+    <dl class="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-3 text-sm">
+      
+      <dt class="font-medium text-gray-600">Name</dt>
+      <dd class="sm:col-span-2 text-gray-900"><%= app.name %></dd>
+
+      <dt class="font-medium text-gray-600">Description</dt>
+      <dd class="sm:col-span-2 text-gray-900"><%= app.description %></dd>
+
+      <dt class="font-medium text-gray-600">URL</dt>      
+      <dd class="sm:col-span-2">
+        <%= link_to truncate(app.url, length: 48),
+                    app.url,
+                    class: "text-gray-900 underline underline-offset-2 break-all hover:no-underline",
+                    target: "_blank", rel: "noopener" %>
+      </dd>
+      
+    </dl>
   </div>
 </div>

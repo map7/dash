@@ -10,11 +10,13 @@
     <%= link_to "New app", new_app_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
   </div>
 
-  <div id="apps" class="min-w-full divide-y divide-gray-200 space-y-5">
+  <div id="apps" class="min-w-full">
     <% if @apps.any? %>
       <% @apps.each do |app| %>
         <div class="flex flex-col sm:flex-row justify-between items-center pb-5 sm:pb-0">
+
           <%= render app %>
+          
           <div class="w-full sm:w-auto flex flex-col sm:flex-row space-x-2 space-y-2">
             <%= link_to "Show", app, class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
             <%= link_to "Edit", edit_app_path(app), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
