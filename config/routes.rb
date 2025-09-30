@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :accesses
   resources :apps
   resource :session
   resources :passwords, param: :token

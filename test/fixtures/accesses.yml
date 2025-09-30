@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  menu_position: 1
+  login: MyString
+  password: MyString
+  auto_login: MyString
+  user: one
+  app: one
+
+two:
+  menu_position: 1
+  login: MyString
+  password: MyString
+  auto_login: MyString
+  user: two
+  app: two
