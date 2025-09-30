@@ -3,7 +3,7 @@ class AppsController < ApplicationController
 
   # GET /apps or /apps.json
   def index
-    @apps = App.all
+    @apps = Current.user.apps.all
   end
 
   # GET /apps/1 or /apps/1.json
@@ -12,7 +12,7 @@ class AppsController < ApplicationController
 
   # GET /apps/new
   def new
-    @app = App.new
+    @app = Current.user.apps.new
   end
 
   # GET /apps/1/edit
@@ -25,6 +25,7 @@ class AppsController < ApplicationController
 
     respond_to do |format|
       if @app.save
+        Current.user.apps << @app
         format.html { redirect_to @app, notice: "App was successfully created." }
         format.json { render :show, status: :created, location: @app }
       else
@@ -60,7 +61,7 @@ class AppsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_app
-      @app = App.find(params.expect(:id))
+      @app = Current.user.apps.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
