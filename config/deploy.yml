@@ -78,6 +78,19 @@ env:
 #   wait: 2
 
 # Use accessory services (secrets come from .kamal/secrets).
+
+
+# Then, configure the `postgres` accessory
+accessories:
+  postgres:
+    image: postgres:15
+    host: dash.tramontana.com.au # The IP you want the database deployed to
+    env:
+      secret:
+        - DASH_DATABASE_PASSWORD # Comes from the .kamal/secrets file
+    directories:
+      - data:/var/lib/postgresql/data
+
 #
 # accessories:
 #   db:
