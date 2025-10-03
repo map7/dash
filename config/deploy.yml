@@ -47,7 +47,7 @@ env:
   #   DB_HOST: 192.168.0.2
   secret:
     - RAILS_MASTER_KEY
-    - DASH_DATABASE_PRODUCTION
+    - DASH_DATABASE_PASSWORD
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
@@ -85,12 +85,19 @@ accessories:
   postgres:
     image: postgres:15
     host: dash.tramontana.com.au # The IP you want the database deployed to
+    port: "127.0.0.1:5432:5432"
     env:
+      clear:
+        POSTGRES_DB: dash_production
+        POSTGRES_USER: dash
+        DB_HOST: 127.0.0.1
+        DB_PORT: 5432      
       secret:
         - DASH_DATABASE_PASSWORD # Comes from the .kamal/secrets file
     directories:
       - data:/var/lib/postgresql/data
-
+    files:
+      - db/production_setup.sql:/docker-entrypoint-initdb.d/setup.sql
 #
 # accessories:
 #   db:
