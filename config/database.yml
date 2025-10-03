@@ -81,9 +81,8 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV['DATABASE_URL'] %>
     database: dash_production
-    username: dash
-    password: <%= ENV["DASH_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: dash_production_cache
@@ -96,3 +95,4 @@ production:
     <<: *primary_production
     database: dash_production_cable
     migrations_paths: db/cable_migrate
+

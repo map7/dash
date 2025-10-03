@@ -1,13 +1,13 @@
 # Name of your application. Used to uniquely configure containers.
-service: tramontana_dash
+service: dash
 
 # Name of the container image.
-image: map7/tramontana_dash
+image: map7/dash
 
 # Deploy to these servers.
 servers:
   web:
-    - dash.tramontana.com.au
+    - 121.200.25.123 # dash.tramontana.com.au
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -47,7 +47,7 @@ env:
   #   DB_HOST: 192.168.0.2
   secret:
     - RAILS_MASTER_KEY
-    - DASH_DATABASE_PASSWORD
+    - DATABASE_URL
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
@@ -84,16 +84,17 @@ env:
 accessories:
   postgres:
     image: postgres:15
-    host: dash.tramontana.com.au # The IP you want the database deployed to
-    port: "127.0.0.1:5432:5432"
+    host: 121.200.25.123 # dash.tramontana.com.au # The IP you want the database deployed to
+    options:
+      network-alias: dash-postgres
     env:
       clear:
-        POSTGRES_DB: dash_production
         POSTGRES_USER: dash
+        POSTGRES_DB: dash_production
         DB_HOST: 127.0.0.1
         DB_PORT: 5432      
       secret:
-        - DASH_DATABASE_PASSWORD # Comes from the .kamal/secrets file
+        - POSTGRES_PASSWORD # Comes from the .kamal/secrets file
     directories:
       - data:/var/lib/postgresql/data
     files:
