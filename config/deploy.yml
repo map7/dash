@@ -7,7 +7,7 @@ image: map7/tramontana_dash
 # Deploy to these servers.
 servers:
   web:
-    - 192.168.200.199
+    - dash.tramontana.com.au
   # job:
   #   hosts:
   #     - 192.168.0.1
