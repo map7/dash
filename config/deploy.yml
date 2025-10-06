@@ -7,7 +7,7 @@ image: map7/dash
 # Deploy to these servers.
 servers:
   web:
-    - 121.200.25.123 # dash.tramontana.com.au
+    - dash.tramontana.com.au
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -84,7 +84,7 @@ env:
 accessories:
   postgres:
     image: postgres:15
-    host: 121.200.25.123 # dash.tramontana.com.au # The IP you want the database deployed to
+    host: dash.tramontana.com.au # The IP you want the database deployed to
     options:
       network-alias: dash-postgres
     env:
