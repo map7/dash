@@ -5,16 +5,26 @@ class DashboardController < ApplicationController
 
   def show
     app = App.find(params[:id])
-
     access = Current.user.access_for(app)
 
-    if access.password.nil? or access.password.length == 0
+    login = access.login.to_s.length == 0 ? app.global_login : access.login
+    password = access.password.to_s.length == 0 ? app.global_password : access.password
+
+    if password.nil? or password.length == 0
+    
       # Edit the password
       redirect_to edit_access_path(access)
 
     else
       # If we have a password then go to the website
-      redirect_to app.url, allow_other_host: true
+      if access.auto_login == 'Basic Auth'
+        url = app.url
+        url = url.split('//').insert(1, "//#{login}:#{password}@").join()
+        puts url
+        redirect_to url, allow_other_host: true
+      else
+        redirect_to app.url, allow_other_host: true
+      end
     end    
   end
 end
