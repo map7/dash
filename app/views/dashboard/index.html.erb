@@ -24,7 +24,7 @@
           <%= app.description %>
         </div>
 
-        <div class="w-1/3 pl-5 pt-3 m-1 text-white">          
+        <div class="text-sm w-1/3 pl-5 pt-3 m-1 text-white">          
           <%= link_to "EDIT APP", edit_app_path(app) %> / 
           <%= link_to "ACCESS", edit_access_path(Current.user.access_for(app)) %>
         </div>
