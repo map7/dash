@@ -1,6 +1,13 @@
 <div class="flex w-screen">
   <div class="w-1/2 bg-[#333] p-5 ">
-    <h1 class="text-3xl text-white pb-10">Tramontana Dash <%= link_to "ADD APP", new_app_path, class: 'text-sm' %></h1>
+    <h1 class="text-3xl text-white pb-10">Tramontana Dash
+      <%= link_to "ADD APP",
+                  new_app_path,
+                  {
+                    id: 'a',
+                    class: 'text-sm'
+                  } %>
+    </h1>
 
     <% @apps.each_with_index do |app,i| %>
 
