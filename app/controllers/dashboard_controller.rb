@@ -10,7 +10,7 @@ class DashboardController < ApplicationController
     login = access.login.to_s.length == 0 ? app.global_login : access.login
     password = access.password.to_s.length == 0 ? app.global_password : access.password
 
-    if password.nil? or password.length == 0
+    if (password.nil? or password.length == 0) and access.auto_login != 'None'
     
       # Edit the password
       redirect_to edit_access_path(access)
