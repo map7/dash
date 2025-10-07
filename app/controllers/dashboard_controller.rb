@@ -20,7 +20,6 @@ class DashboardController < ApplicationController
       if access.auto_login == 'Basic Auth'
         url = app.url
         url = url.split('//').insert(1, "//#{login}:#{password}@").join()
-        puts url
         redirect_to url, allow_other_host: true
       else
         redirect_to app.url, allow_other_host: true
