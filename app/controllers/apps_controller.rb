@@ -26,7 +26,8 @@ class AppsController < ApplicationController
     respond_to do |format|
       if @app.save
         Current.user.apps << @app
-        format.html { redirect_to @app, notice: "App was successfully created." }
+        format.html { redirect_to dashboard_index_path,
+            notice: "App was successfully created." }
         format.json { render :show, status: :created, location: @app }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +44,8 @@ class AppsController < ApplicationController
 
     respond_to do |format|
       if @app.update(app_params)
-        format.html { redirect_to @app, notice: "App was successfully updated.", status: :see_other }
+        format.html { redirect_to dashboard_index_path,
+            notice: "App was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @app }
       else
         format.html { render :edit, status: :unprocessable_entity }
