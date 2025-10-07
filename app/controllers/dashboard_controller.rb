@@ -5,6 +5,16 @@ class DashboardController < ApplicationController
 
   def show
     app = App.find(params[:id])
-    redirect_to app.url, allow_other_host: true
+
+    access = Current.user.access_for(app)
+
+    if access.password
+      # If we have a password then go to the website
+      redirect_to app.url, allow_other_host: true
+
+    else
+      # Edit the password
+      redirect_to edit_access_path(access)
+    end    
   end
 end
