@@ -5,6 +5,8 @@
     <% @apps.each_with_index do |app,i| %>
 
       <div class="w-full flex pb-5">
+        <%= link_to "#{i}. #{app.name}", edit_access_path(Current.user.access_for(app)) %>
+        
         <a href="<%= app.url %>" id="<%= i %>" class="w-1/3">
           <div class="w-full bg-black p-3 m-1 rounded-sm text-white">
             <%= i %>. <%= app.name %>
