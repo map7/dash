@@ -52,10 +52,28 @@
     </div>
     
     <div class="text-5xl pt-30 w-full text-center" id="clock"></div>
+    <div class="text-2xl pt-10 w-full text-center" id="weather"></div>
   </div>
 </div>
 
 <script>
+
+ // --------------------------------------------------------------------------------
+ async function loadWeather() {
+   const res = await fetch(
+     "https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current_weather=true"
+   );
+   const data = await res.json();
+   const w = data.current_weather;
+   document.getElementById("weather").innerHTML =
+     `🌤 Melbourne: ${w.temperature}°C, wind ${w.windspeed} km/h`;
+ }
+
+ loadWeather();
+
+ setInterval(loadWeather, 10 * 60 * 1000); // refresh every 10 minutes
+ 
+ // --------------------------------------------------------------------------------
  // Update Clock
  function updateClock() {
    const now = new Date();
@@ -68,6 +86,7 @@
  }
  setInterval(updateClock, 1000);
  updateClock();
+ // --------------------------------------------------------------------------------
 
  // Hotkey function for links (1, 2, 3)
  document.addEventListener('keydown', function(event) {
