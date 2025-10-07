@@ -5,14 +5,15 @@
     <% @apps.each_with_index do |app,i| %>
 
       <div class="w-full flex pb-5">
-        <%= link_to "#{i}. #{app.name}", edit_access_path(Current.user.access_for(app)) %>
-        
-        <a href="<%= app.url %>" id="<%= i %>" class="w-1/3">
-          <div class="w-full bg-black p-3 m-1 rounded-sm text-white">
-            <%= i %>. <%= app.name %>
-          </div>
-        </a>
+        <%= link_to "#{i}. #{app.name}",
+                    dashboard_path(id: app.id),
+                    {
+                      id: i,
+                      class: "w-1/3 bg-black p-3 m-1 rounded-sm text-white",
+                    } %>
 
+        <%#= link_to "EDIT ACCESS", edit_access_path(Current.user.access_for(app)) %>
+        
         <div class="w-2/3 pl-5 pt-3 m-1 text-white">
           <%= app.description %>
         </div>
