@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :apps, :through => :accesses
   
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  def access_for(app)
+    accesses.find_by(app: app)
+  end
 end
