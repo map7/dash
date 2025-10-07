@@ -37,6 +37,10 @@ class AppsController < ApplicationController
 
   # PATCH/PUT /apps/1 or /apps/1.json
   def update
+    if params[:app][:global_password].blank?
+      params[:app].delete(:global_password)
+    end
+
     respond_to do |format|
       if @app.update(app_params)
         format.html { redirect_to @app, notice: "App was successfully updated.", status: :see_other }
