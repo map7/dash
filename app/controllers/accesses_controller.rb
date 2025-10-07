@@ -38,7 +38,7 @@ class AccessesController < ApplicationController
   def update
     respond_to do |format|
       if @access.update(access_params)
-        format.html { redirect_to @access, notice: "Access was successfully updated.", status: :see_other }
+        format.html { redirect_to dashboard_index_path, notice: "Access was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @access }
       else
         format.html { render :edit, status: :unprocessable_entity }
