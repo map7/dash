@@ -19,14 +19,19 @@
 
   <div class="my-5">
     <%= form.label :password %>
-    <%= form.text_field :password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": access.errors[:password].none?, "border-red-400 focus:outline-red-600": access.errors[:password].any?}] %>
+    <%= form.password_field :password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": access.errors[:password].none?, "border-red-400 focus:outline-red-600": access.errors[:password].any?}] %>Leave blank if unchanged.
   </div>
-  <!-- 
-       <div class="my-5">
-       <%= form.label :auto_login %>
-       <%= form.text_field :auto_login, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": access.errors[:auto_login].none?, "border-red-400 focus:outline-red-600": access.errors[:auto_login].any?}] %>
-       </div>
-
+  
+  <div class="my-5">
+    <%= form.label :auto_login %>
+    <%= form.select :auto_login,
+         [['Basic Auth', 1]],
+         { include_blank: true },
+         class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": access.errors[:auto_login].none?, "border-red-400 focus:outline-red-600": access.errors[:auto_login].any?}]
+    %>
+  </div>
+  
+<!-- 
        <div class="my-5">
        <%= form.label :menu_position %>
        <%= form.number_field :menu_position, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": access.errors[:menu_position].none?, "border-red-400 focus:outline-red-600": access.errors[:menu_position].any?}] %>

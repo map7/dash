@@ -36,6 +36,11 @@ class AccessesController < ApplicationController
 
   # PATCH/PUT /accesses/1 or /accesses/1.json
   def update
+
+    if params[:access][:password].blank?
+      params[:access].delete(:password)
+    end
+
     respond_to do |format|
       if @access.update(access_params)
         format.html { redirect_to dashboard_index_path, notice: "Access was successfully updated.", status: :see_other }
