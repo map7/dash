@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 
     access = Current.user.access_for(app)
 
-    if access.password
+    if access.password.length > 0
       # If we have a password then go to the website
       redirect_to app.url, allow_other_host: true
 
