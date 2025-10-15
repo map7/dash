@@ -1,6 +1,8 @@
 class DashboardController < ApplicationController
   def index
-    @apps = Current.user.apps.order(:menu_position)
+    
+    # @apps = Current.user.apps.order(:menu_position)
+    @accesses = Current.user.accesses.includes(:app).order(:menu_position)
   end
 
   def show

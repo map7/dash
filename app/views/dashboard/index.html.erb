@@ -9,24 +9,37 @@
                   } %>
     </h1>
 
-    <% @apps.each_with_index do |app,i| %>
+    <% @accesses.each_with_index do |access,i| %>
 
-      <div class="w-full flex pb-5">
-        <%= link_to "#{i}. #{app.name}",
-                    dashboard_path(id: app.id),
+      <div class="w-full flex pb-5"
+           data-controller="dashboard"
+           data-dashboard-url-value="<%= access.app.url %>"
+           data-dashboard-login-value="<%= access.login %>"
+           data-dashboard-password-value="<%= access.password %>"
+           data-dashboard-app-value="<%= access.auto_login %>"
+      >
+        
+        <%#= link_to "#{i}. #{access.app.name}",
+                    dashboard_path(id: access.app.id),
                     {
                       id: i,
                       class: "w-1/3 bg-black p-3 m-1 rounded-sm text-white",
                     } %>
 
+        <button id="<%= i %>"
+                class="w-1/3 bg-black p-3 m-1 rounded-sm text-white"
+                data-action="click->dashboard#send">
+          <%= i %>. <%= access.app.name %>
+        </button>
+
         
         <div class="w-1/3 pl-5 pt-3 m-1 text-white">
-          <%= app.description %>
+          <%= access.app.description %>
         </div>
 
         <div class="text-sm w-1/3 pl-5 pt-3 m-1 text-white">          
-          <%= link_to "EDIT APP", edit_app_path(app) %> / 
-          <%= link_to "ACCESS", edit_access_path(Current.user.access_for(app)) %>
+          <%= link_to "EDIT APP", edit_app_path(access.app) %> / 
+          <%= link_to "ACCESS", edit_access_path(access) %>
         </div>
       </div>
       
