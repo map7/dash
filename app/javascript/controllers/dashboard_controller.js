@@ -12,6 +12,11 @@ export default class extends Controller {
 
     if (this.appValue == 'None') {
       window.open(this.urlValue, '_blank').focus();
+
+      
+    } else if (this.appValue == 'Basic Auth' ){
+      let url = this.urlValue.replace("//", "//" + this.loginValue + ":"  + this.passwordValue + "@");
+      window.open(url, '_blank').focus();
     } else {
       
       alert("url: " + this.urlValue + "\n" +
