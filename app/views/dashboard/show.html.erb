@@ -1,0 +1,33 @@
+Loading...
+
+<input id="url" value="<%= @url %>" size="70" /><br>
+<input id="login" value="<%= @login %>" /><br>
+<input id="password" value="<%= @password %>" /><br>
+<input id="app" value="<%= @auto_login %>" /><br>
+<button id="sendBtn">Send</button>
+
+<script>
+ function send(url, login, password, app) {
+   // IMPORTANT: targetOrigin must be the *parent* page’s origin or "*".
+   // The extension content script will still only accept localhost senders.
+   // postMessage is a HTML5 messaging API which allows you to send data to an extension
+   window.postMessage({ type: "DASH",
+                        url: String(url || ""),
+                        login: String(login || ""),
+                        password: String(password || ""),
+                        app: String(app || "")
+   }, "*");
+ }
+
+ 
+ document.getElementById("sendBtn").addEventListener("click", () => {
+   const url = document.getElementById("url").value || "";
+   const login = document.getElementById("login").value || "";
+   const password = document.getElementById("password").value || "";
+   const app = document.getElementById('app').value || "";
+   send(url, login, password, app);
+ });
+
+ // Optional: expose a global for programmatic sends from your app
+ window.bridgeSend = send;
+</script>
