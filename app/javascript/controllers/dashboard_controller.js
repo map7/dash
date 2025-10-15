@@ -24,10 +24,10 @@ export default class extends Controller {
       window.open(url, '_blank').focus();
     } else {
       
-      alert("url: " + this.urlValue + "\n" +
-            "login: " + this.loginValue + "\n" +
-            "password: " + this.passwordValue + "\n" + 
-            "app: " + this.appValue + "\n" );
+      // alert("url: " + this.urlValue + "\n" +
+      //       "login: " + this.loginValue + "\n" +
+      //       "password: " + this.passwordValue + "\n" + 
+      //       "app: " + this.appValue + "\n" );
 
       window.postMessage({ type: "DASH",
                          url: this.urlValue,
