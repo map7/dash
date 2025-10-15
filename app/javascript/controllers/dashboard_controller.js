@@ -11,7 +11,12 @@ export default class extends Controller {
   
   send() {
 
-    if (this.appValue == 'None') {
+    if (this.appValue == ""){
+      let url = window.location.href.replace("dashboard","accesses/" + this.idValue + "/edit");
+      alert("Please fill in auth login method and credentials, then retry");
+      window.location.replace(url);
+      
+    } else if (this.appValue == 'None') {
       window.open(this.urlValue, '_blank').focus();
 
     } else if (this.appValue == 'Basic Auth' & this.loginValue == "" & this.passwordValue == "" ){
