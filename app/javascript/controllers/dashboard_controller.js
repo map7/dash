@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static values = {
+    id: String,
     url: String,
     login: String,
     password: String,
@@ -13,6 +14,10 @@ export default class extends Controller {
     if (this.appValue == 'None') {
       window.open(this.urlValue, '_blank').focus();
 
+    } else if (this.appValue == 'Basic Auth' & this.loginValue == "" & this.passwordValue == "" ){
+      let url = window.location.href.replace("dashboard","accesses/" + this.idValue + "/edit");
+      alert("Please fill in login & password in the next screen, then retry");
+      window.location.replace(url);
       
     } else if (this.appValue == 'Basic Auth' ){
       let url = this.urlValue.replace("//", "//" + this.loginValue + ":"  + this.passwordValue + "@");
