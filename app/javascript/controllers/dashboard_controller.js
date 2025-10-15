@@ -9,17 +9,25 @@ export default class extends Controller {
   }
   
   send() {
-    // alert("url: " + this.urlValue + "\n" +
-    //       "login: " + this.loginValue + "\n" +
-    //       "password: " + this.passwordValue + "\n" + 
-    //       "app: " + this.appValue + "\n" );
- 
-    window.postMessage({ type: "DASH",
+
+    if (this.appValue == 'None') {
+      window.open(this.urlValue, '_blank').focus();
+    } else {
+      
+      alert("url: " + this.urlValue + "\n" +
+            "login: " + this.loginValue + "\n" +
+            "password: " + this.passwordValue + "\n" + 
+            "app: " + this.appValue + "\n" );
+
+      window.postMessage({ type: "DASH",
                          url: this.urlValue,
                          login: this.loginValue,
                          password: this.passwordValue,
                          app: this.appValue
                        }, "*");
+
+    }
+    
    
   }
 }
