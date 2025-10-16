@@ -1,4 +1,4 @@
-<%= form_with(model: access, html: {class: "contents", autocomplete: "off"}) do |form| %>
+<%= form_with(model: access, html: {class: "contents"}) do |form| %>
   <% if access.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(access.errors.count, "error") %> prohibited this access from being saved:</h2>
