@@ -1,4 +1,4 @@
-<%= form_with(model: app, class: "contents") do |form| %>
+<%= form_with(model: app, html: {class: "contents", autocomplete: "off"}) do |form| %>
   <% if app.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(app.errors.count, "error") %> prohibited this app from being saved:</h2>
@@ -30,12 +30,12 @@
   <div class="my-5">
     <%= form.label :global_login %>
     <%= form.text_field :global_login,
-         { class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": app.errors[:global_login].none?, "border-red-400 focus:outline-red-600": app.errors[:global_login].any?}] } %>
+       { class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": app.errors[:global_login].none?, "border-red-400 focus:outline-red-600": app.errors[:global_login].any?}], autocomplete: "off" } %>
   </div>
 
   <div class="my-5">
     <%= form.label :global_password %>
-    <%= form.password_field :global_password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": app.errors[:global_password].none?, "border-red-400 focus:outline-red-600": app.errors[:global_password].any?}] %>Leave blank if unchanged.
+    <%= form.password_field :global_password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": app.errors[:global_password].none?, "border-red-400 focus:outline-red-600": app.errors[:global_password].any?}], autocomplete: "off" %>Leave blank if unchanged.
   </div>
 
   <div class="inline">
