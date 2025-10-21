@@ -19,7 +19,7 @@ export default class extends Controller {
     } else if (this.appValue == 'None') {
       window.open(this.urlValue, '_blank').focus();
 
-    } else if (this.appValue == 'Basic Auth' & this.loginValue == "" & this.passwordValue == "" ){
+    } else if (this.appValue != 'None' & this.loginValue == "" & this.passwordValue == "" ){
       let url = window.location.href.replace("dashboard","accesses/" + this.idValue + "/edit");
       alert("Please fill in login & password in the next screen, then retry");
       window.location.replace(url);
@@ -28,6 +28,8 @@ export default class extends Controller {
       let url = this.urlValue.replace("//", "//" + this.loginValue + ":"  + this.passwordValue + "@");
       window.open(url, '_blank').focus();
     } else {
+
+      console.log("app: " + this.appValue);
       
       // alert("url: " + this.urlValue + "\n" +
       //       "login: " + this.loginValue + "\n" +
