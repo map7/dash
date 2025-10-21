@@ -59,7 +59,7 @@ class AppsController < ApplicationController
     @app.destroy!
 
     respond_to do |format|
-      format.html { redirect_to apps_path, notice: "App was successfully destroyed.", status: :see_other }
+      format.html { redirect_to dashboard_index_path, notice: "App was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
