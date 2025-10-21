@@ -26,11 +26,11 @@
                       class: "w-1/3 bg-black p-3 m-1 rounded-sm text-white",
                     } %>
 
-        <button id="<%= i %>"
-                class="w-1/3 bg-black p-3 m-1 rounded-sm text-white cursor-pointer"
+        <a id="<%= i %>"
+                class="w-1/3 bg-black p-3 m-1 rounded-sm text-white cursor-pointer text-left"
                 data-action="click->dashboard#send">
           <%= i %>. <%= access.app.name %>
-        </button>
+        </a>
 
         
         <div class="w-1/3 pl-5 pt-3 m-1 text-white">
