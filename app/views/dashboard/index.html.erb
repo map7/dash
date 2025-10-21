@@ -32,7 +32,12 @@
 
         <div class="text-sm w-1/3 pl-5 pt-3 m-1 text-white">          
           <%= link_to "EDIT APP", edit_app_path(access.app) %> / 
-          <%= link_to "ACCESS", edit_access_path(access) %>
+          <%= link_to "ACCESS", edit_access_path(access) %> /
+          <%= button_to "DEL", access.app,
+                        method: :delete,
+                        class: "cursor-pointer",
+                        form: {style: 'display:inline-block;'},
+                        data: { turbo_confirm: "Are you sure?" } %>
         </div>
       </div>
       
