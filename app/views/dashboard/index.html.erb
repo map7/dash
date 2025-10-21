@@ -19,13 +19,6 @@
            data-dashboard-password-value="<%= access.password %>"
            data-dashboard-app-value="<%= access.auto_login %>" >
         
-        <%#= link_to "#{i}. #{access.app.name}",
-                    dashboard_path(id: access.app.id),
-                    {
-                      id: i,
-                      class: "w-1/3 bg-black p-3 m-1 rounded-sm text-white",
-                    } %>
-
         <a id="<%= i %>"
                 class="w-1/3 bg-black p-3 m-1 rounded-sm text-white cursor-pointer text-left"
                 data-action="click->dashboard#send">
