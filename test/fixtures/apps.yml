@@ -1,6 +1,4 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-<% password_digest = BCrypt::Password.create("password") %>
-
 one:
   name: Google
   description: Search
@@ -21,4 +19,4 @@ four:
   description: Invoice program
   url: https://invoice.com.au
   global_login: admin
-  global_password: <%= password_digest %>
+  global_password: password

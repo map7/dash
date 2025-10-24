@@ -1,7 +1,4 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-<% password_digest = BCrypt::Password.create("password") %>
-
 one:
   menu_position: 1
   auto_login: None
@@ -12,7 +9,7 @@ two:
   menu_position: 2
   auto_login: Basic Auth
   # login: admin
-  # password: <%= password_digest %>
+  # password: password
   user: one
   app: two
 
