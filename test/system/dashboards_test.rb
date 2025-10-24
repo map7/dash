@@ -9,6 +9,9 @@ class DashboardsTest < ApplicationSystemTestCase
     # page.driver.debug(binding)
     # Google link
     click_link(id: '0')
+
+    # Doesn't prompt for login, opens app in a new tab
+    assert_selector 'h1', text: 'Tramontana Dash ADD APP'
   end
 
   test 'Login and direct to the second app and asks for password' do
@@ -20,5 +23,17 @@ class DashboardsTest < ApplicationSystemTestCase
     click_link(id: '1')
 
     assert_selector 'h1', text: 'Editing access'
+  end
+
+  test 'Login and direct to the forth app and logs in' do
+    visit dashboard_index_url
+    login_user
+    assert_selector 'h1', text: 'Tramontana Dash ADD APP'
+
+    # Report Craft
+    click_link(id: '2')
+
+    # Doesn't prompt for login, opens app in a new tab
+    assert_selector 'h1', text: 'Tramontana Dash ADD APP'
   end
 end

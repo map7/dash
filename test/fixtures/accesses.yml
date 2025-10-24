@@ -15,3 +15,10 @@ two:
   # password: <%= password_digest %>
   user: one
   app: two
+
+three:
+  menu_position: 3
+  auto_login: Basic Auth
+  user: one
+  app: four
+  

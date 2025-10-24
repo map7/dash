@@ -10,11 +10,15 @@ two:
   name: Report Craft
   description: Reporting for Accounting Packages
   url: https://reportcraft.com.au
-  global_login: admin
-  global_password: <%= password_digest %>
 
 three:
   name: Feather WIKI
   description: WIKI
   url: https://feather.wiki/
   
+four:   
+  name: Invoice
+  description: Invoice program
+  url: https://invoice.com.au
+  global_login: admin
+  global_password: <%= password_digest %>
