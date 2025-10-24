@@ -1,7 +1,8 @@
 require "application_system_test_case"
 
 class DashboardsTest < ApplicationSystemTestCase
-  test "visiting the index" do
+  test "Login and direct to the first app" do
+
     visit dashboard_index_url
   
     assert_selector "h1", text: "Sign in"
@@ -10,8 +11,11 @@ class DashboardsTest < ApplicationSystemTestCase
     fill_in :password, with: "password"
 
     click_on "Sign in"
-    # page.driver.debug(binding)
 
     assert_selector "h1", text: "Tramontana Dash ADD APP"
+    
+    # page.driver.debug(binding)
+    click_link "0. Google"    
+    # click_link "X. Log Out"
   end
 end
