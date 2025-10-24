@@ -12,7 +12,7 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
     Dir[File.expand_path("support/**/*.rb", __dir__)].sort.each { |f| require f }
-    
+
     def login
       get "/session/new"
       assert_dom "h1", "Sign in"

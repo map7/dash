@@ -7,7 +7,7 @@ puts "LOADING SUPPORT"
 Capybara.register_driver(:cuprite_rails) do |app|
   Capybara::Cuprite::Driver.new(app,
                                 window_size: [1920, 1080],
-                                headless: false
+                                headless: ENV['UI'] == 'true' ? false : true
                                )
 end
 Capybara.javascript_driver = :cuprite_rails

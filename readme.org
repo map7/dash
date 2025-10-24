@@ -10,3 +10,6 @@ Everything except System tests
 
 Just System tests (Using capybara)
 : rails test:system
+
+Include GUI
+: UI=true rails test:system
