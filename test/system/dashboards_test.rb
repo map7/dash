@@ -15,7 +15,6 @@ class DashboardsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Tramontana Dash ADD APP"
     
     # page.driver.debug(binding)
-    click_link "0. Google"    
-    # click_link "X. Log Out"
+    click_link(id: '0')         # Google link
   end
 end
