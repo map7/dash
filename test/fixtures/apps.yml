@@ -1,15 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+<% password_digest = BCrypt::Password.create("password") %>
 
 one:
-  name: MyString
-  description: MyString
-  url: MyString
-  global_login: MyString
-  global_password: MyString
+  name: Google
+  description: Search
+  url: https://www.google.com
+  global_login: 
+  global_password: 
 
 two:
-  name: MyString
-  description: MyString
-  url: MyString
-  global_login: MyString
-  global_password: MyString
+  name: Report Craft
+  description: Reporting for Accounting Packages
+  url: https://reportcraft.com.au
+  global_login: 
+  global_password: 
