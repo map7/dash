@@ -11,7 +11,7 @@ one:
 two:
   menu_position: 2
   auto_login: Basic Auth
-  login: admin
-  password: <%= password_digest %>
-  user: two
+  # login: admin
+  # password: <%= password_digest %>
+  user: one
   app: two
