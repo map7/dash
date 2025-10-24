@@ -1,0 +1,12 @@
+* Dash
+
+** Running tests
+
+All tests
+: rails test:all
+
+Everything except System tests
+: rails test
+
+Just System tests (Using capybara)
+: rails test:system
