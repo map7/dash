@@ -5,12 +5,10 @@ one:
   name: Google
   description: Search
   url: https://www.google.com
-  global_login: 
-  global_password: 
 
 two:
   name: Report Craft
   description: Reporting for Accounting Packages
   url: https://reportcraft.com.au
-  global_login: 
-  global_password: 
+  global_login: admin
+  global_password: <%= password_digest %>

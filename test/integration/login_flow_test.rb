@@ -12,5 +12,6 @@ class LoginFlowTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_equal 200, status
     assert_equal "/", path
+    # assert_dom "h1", "Tramontana Dash"
   end
 end
