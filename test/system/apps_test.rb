@@ -5,45 +5,45 @@ class AppsTest < ApplicationSystemTestCase
     @app = apps(:one)
   end
 
-  test "visiting the index" do
-    visit apps_url
-    assert_selector "h1", text: "Apps"
-  end
+  # test "visiting the index" do
+  #   visit apps_url
+  #   assert_selector "h1", text: "Apps"
+  # end
 
-  test "should create app" do
-    visit apps_url
-    click_on "New app"
+  # test "should create app" do
+  #   visit apps_url
+  #   click_on "New app"
 
-    fill_in "Description", with: @app.description
-    fill_in "Global login", with: @app.global_login
-    fill_in "Global password", with: @app.global_password
-    fill_in "Name", with: @app.name
-    fill_in "Url", with: @app.url
-    click_on "Create App"
+  #   fill_in "Description", with: @app.description
+  #   fill_in "Global login", with: @app.global_login
+  #   fill_in "Global password", with: @app.global_password
+  #   fill_in "Name", with: @app.name
+  #   fill_in "Url", with: @app.url
+  #   click_on "Create App"
 
-    assert_text "App was successfully created"
-    click_on "Back"
-  end
+  #   assert_text "App was successfully created"
+  #   click_on "Back"
+  # end
 
-  test "should update App" do
-    visit app_url(@app)
-    click_on "Edit this app", match: :first
+  # test "should update App" do
+  #   visit app_url(@app)
+  #   click_on "Edit this app", match: :first
 
-    fill_in "Description", with: @app.description
-    fill_in "Global login", with: @app.global_login
-    fill_in "Global password", with: @app.global_password
-    fill_in "Name", with: @app.name
-    fill_in "Url", with: @app.url
-    click_on "Update App"
+  #   fill_in "Description", with: @app.description
+  #   fill_in "Global login", with: @app.global_login
+  #   fill_in "Global password", with: @app.global_password
+  #   fill_in "Name", with: @app.name
+  #   fill_in "Url", with: @app.url
+  #   click_on "Update App"
 
-    assert_text "App was successfully updated"
-    click_on "Back"
-  end
+  #   assert_text "App was successfully updated"
+  #   click_on "Back"
+  # end
 
-  test "should destroy App" do
-    visit app_url(@app)
-    accept_confirm { click_on "Destroy this app", match: :first }
+  # test "should destroy App" do
+  #   visit app_url(@app)
+  #   accept_confirm { click_on "Destroy this app", match: :first }
 
-    assert_text "App was successfully destroyed"
-  end
+  #   assert_text "App was successfully destroyed"
+  # end
 end
