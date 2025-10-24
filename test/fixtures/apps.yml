@@ -12,3 +12,9 @@ two:
   url: https://reportcraft.com.au
   global_login: admin
   global_password: <%= password_digest %>
+
+three:
+  name: Feather WIKI
+  description: WIKI
+  url: https://feather.wiki/
+  
