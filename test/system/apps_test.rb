@@ -8,7 +8,7 @@ class AppsTest < ApplicationSystemTestCase
   test "should create app" do
     visit dashboard_index_url
     login_user
-    
+
     click_on "ADD APP"
 
     fill_in "Description", with: @app.description
@@ -22,20 +22,25 @@ class AppsTest < ApplicationSystemTestCase
     assert_text "Feather WIKI"
   end
 
-  # test "should update App" do
-  #   visit app_url(@app)
-  #   click_on "Edit this app", match: :first
+  test "should update App" do
+    visit dashboard_index_url
+    login_user
 
-  #   fill_in "Description", with: @app.description
-  #   fill_in "Global login", with: @app.global_login
-  #   fill_in "Global password", with: @app.global_password
-  #   fill_in "Name", with: @app.name
-  #   fill_in "Url", with: @app.url
-  #   click_on "Update App"
+    click_on "edit2"
 
-  #   assert_text "App was successfully updated"
-  #   click_on "Back"
-  # end
+    fill_in "Description", with: "Foobar"
+    fill_in "Global login", with: @app.global_login
+    fill_in "Global password", with: @app.global_password
+    fill_in "Name", with: @app.name
+    fill_in "Url", with: @app.url
+
+    click_on "Update App"
+
+    # assert_text "App was successfully updated"
+
+    assert_selector 'h1', text: 'Tramontana Dash ADD APP'
+    assert_text "Foobar"
+  end
 
   # test "should destroy App" do
   #   visit app_url(@app)
