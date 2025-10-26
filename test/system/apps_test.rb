@@ -42,10 +42,16 @@ class AppsTest < ApplicationSystemTestCase
     assert_text "Foobar"
   end
 
-  # test "should destroy App" do
-  #   visit app_url(@app)
-  #   accept_confirm { click_on "Destroy this app", match: :first }
+  test "should destroy App" do
+    visit dashboard_index_url
+    login_user
 
-  #   assert_text "App was successfully destroyed"
-  # end
+    assert_text "Google"
+    
+    accept_confirm { click_on "DEL", match: :first }
+
+    # assert_text "App was successfully destroyed"
+
+    assert_no_text "Google"
+  end
 end
