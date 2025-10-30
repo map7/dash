@@ -26,7 +26,7 @@ class TwoFactorAuthentication::Profile::TotpsController < ApplicationController
     end
 
     def set_totp
-      @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "YourAppName")
+      @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "Dash")
     end
 
     def provisioning_uri
