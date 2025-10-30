@@ -7,6 +7,12 @@
                     id: 'a',
                     class: 'text-sm'
                   } %>
+      <%= link_to "PROFILE",
+                  profile_path,
+                  {
+                    id: 'a',
+                    class: 'text-sm'
+                  } %>
     </h1>
 
     <% @accesses.each_with_index do |access,i| %>
