@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :recovery_codes, only: [:index, :create]
     end
   end
-  root "home#index"
+  # root "home#index"
   resources :accesses
   resources :apps
   # resource :session
