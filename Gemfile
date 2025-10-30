@@ -67,3 +67,5 @@ group :test do
   # gem "selenium-webdriver"
   gem "cuprite"
 end
+
+gem "authentication-zero", "~> 4.0"
