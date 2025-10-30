@@ -1,9 +1,31 @@
 Rails.application.routes.draw do
+  get  "sign_in", to: "sessions#new"
+  post "sign_in", to: "sessions#create"
+  get  "sign_up", to: "registrations#new"
+  post "sign_up", to: "registrations#create"
+  resources :sessions, only: [:index, :show, :destroy]
+  resource  :password, only: [:edit, :update]
+  namespace :identity do
+    resource :email,              only: [:edit, :update]
+    resource :email_verification, only: [:show, :create]
+    resource :password_reset,     only: [:new, :edit, :create, :update]
+  end
+  namespace :two_factor_authentication do
+    namespace :challenge do
+      resource :totp,           only: [:new, :create]
+      resource :recovery_codes, only: [:new, :create]
+    end
+    namespace :profile do
+      resource  :totp,           only: [:new, :create, :update]
+      resources :recovery_codes, only: [:index, :create]
+    end
+  end
+  root "home#index"
   resources :accesses
   resources :apps
-  resource :session
-  resources :passwords, param: :token
-  resource :registration, only: %i[new create]
+  # resource :session
+  # resources :passwords, param: :token
+  # resource :registration, only: %i[new create]
   resources :dashboard, only: %i[index show]
   
   get "dashboard/index"

@@ -69,3 +69,9 @@ group :test do
 end
 
 gem "authentication-zero", "~> 4.0"
+# Use Pwned to check if a password has been found in any of the huge data breaches [https://github.com/philnash/pwned]
+gem "pwned"
+# Use rotp for generating and validating one time passwords [https://github.com/mdp/rotp]
+gem "rotp"
+# Use rqrcode for creating and rendering QR codes into various formats [https://github.com/whomwah/rqrcode]
+gem "rqrcode"
