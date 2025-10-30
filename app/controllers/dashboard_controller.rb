@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
   def index
-    
+
     # @apps = Current.user.apps.order(:menu_position)
     @accesses = Current.user.accesses.includes(:app).order(:menu_position)
+    render :index, layout: "dash"
   end
 
   def show
@@ -13,7 +14,7 @@ class DashboardController < ApplicationController
     @password = access.password.to_s.length == 0 ? app.global_password : access.password
 
     if (@password.nil? or @password.length == 0) and access.auto_login != 'None'
-    
+
       # Edit the password
       redirect_to edit_access_path(access)
 
@@ -25,10 +26,10 @@ class DashboardController < ApplicationController
       else
         @url = app.url
         @auto_login = access.auto_login
-        
+
         render :show
         # redirect_to app.url, allow_other_host: true
       end
-    end    
+    end
   end
 end
