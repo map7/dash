@@ -1,31 +1,35 @@
-<p style="color: green"><%= notice %></p>
+<div class="mx-auto md:w-2/3 w-full">
+  <% if notice = flash[:notice] %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
-<p>Signed as <%= Current.user.email %></p>
+  <p class="font-bold">Signed as <%= Current.user.email %></p>
 
-<h2>Login and verification</h2>
+  <h2 class="font-bold text-4xl">Login and verification</h2>
 
-<div>
-  <%= link_to "Change password", edit_password_path %>
+  <div>
+    <%= link_to "Change password", edit_password_path, class: "text-gray-700 underline hover:no-underline" %>
+  </div>
+
+  <div>
+    <%= link_to "Change email address", edit_identity_email_path, class: "text-gray-700 underline hover:no-underline" %>
+  </div>
+
+  <div>
+    <%= link_to "Two-Factor Authentication", new_two_factor_authentication_profile_totp_path, class: "text-gray-700 underline hover:no-underline" %>
+  </div>
+
+  <% if Current.user.otp_required_for_sign_in? %>
+    <div><%= link_to "Recovery Codes", two_factor_authentication_profile_recovery_codes_path, class: "text-gray-700 underline hover:no-underline" %></div>
+  <% end %>
+
+  <h2>Access history</h2>
+
+  <div>
+    <%= link_to "Devices & Sessions", sessions_path, class: "text-gray-700 underline hover:no-underline" %>
+  </div>
+
+  <br>
+
+  <%= button_to "Log out", Current.session, class: "text-gray-700 underline hover:no-underline", method: :delete %>
 </div>
-
-<div>
-  <%= link_to "Change email address", edit_identity_email_path %>
-</div>
-
-<div>
-  <%= link_to "Two-Factor Authentication", new_two_factor_authentication_profile_totp_path %>
-</div>
-
-<% if Current.user.otp_required_for_sign_in? %>
-  <div><%= link_to "Recovery Codes", two_factor_authentication_profile_recovery_codes_path %></div>
-<% end %>
-
-<h2>Access history</h2>
-
-<div>
-  <%= link_to "Devices & Sessions", sessions_path %>
-</div>
-
-<br>
-
-<%= button_to "Log out", Current.session, method: :delete %>
