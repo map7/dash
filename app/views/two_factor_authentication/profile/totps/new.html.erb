@@ -7,7 +7,7 @@
 
   <p><strong>Do you want to continue? Your existing 2FA setup will no longer work.</strong></p>
 
-  <%= button_to "Yes, replace my 2FA setup", two_factor_authentication_profile_totp_path, method: :patch %>
+  <%= button_to "Yes, replace my 2FA setup", two_factor_authentication_profile_totp_path, {class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer", method: :patch } %>
 
   <hr>
 <% end %>
@@ -29,16 +29,13 @@
 <%= form_with(url: two_factor_authentication_profile_totp_path) do |form| %>
   <div>
     <%= form.label :code, "After scanning with your camera, the app will generate a six-digit code. Enter it here:", style: "display: block" %>
-    <%= form.text_field :code, required: true, autofocus: true, autocomplete: :off %>
+    <%= form.text_field :code, { class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full border-gray-400 focus:outline-blue-600", required: true, autofocus: true, autocomplete: :off} %>
   </div>
 
   <div>
-    <%= form.submit "Verify and activate" %>
+    <%= form.submit "Verify and activate", class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+
+    <%= link_to "Back", :back, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   </div>
 <% end %>
 
-<br>
-
-<div>
-  <%= link_to "Back", root_path %>
-</div>
