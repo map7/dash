@@ -1,16 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Two-factor recovery codes</h1>
+<h1 class="font-bold text-4xl">Two-factor recovery codes</h1>
 <p>Recovery codes provide a way to log in if you lose your phone (or don't have it with you). Save these and keep them somewhere safe.</p>
 
 <ul><%= render @recovery_codes %></ul>
 
-<div><%= link_to "OK, I'm done", root_path %></div>
+<div><%= link_to "OK, I'm done", root_path, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %></div>
 
 <hr>
 
-<h2>Need new recovery codes?</h2>
+<h2 class="font-bold text-3xl">Need new recovery codes?</h2>
 
 <p>If you think your codes have fallen into the wrong hands, you can get a new set. Be sure to save the new ones because the old codes will stop working.</p>
 
-<%= button_to "Generate new recovery codes", two_factor_authentication_profile_recovery_codes_path %>
+<%= button_to "Generate new recovery codes", two_factor_authentication_profile_recovery_codes_path, class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
