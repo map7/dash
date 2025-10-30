@@ -26,7 +26,8 @@ class TwoFactorAuthentication::Profile::TotpsController < ApplicationController
     end
 
     def set_totp
-      @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "Dash")
+      issuer = Rails.env == 'development' ? 'Dash-dev' : 'Dash'
+      @totp = ROTP::TOTP.new(@user.otp_secret, issuer: issuer)
     end
 
     def provisioning_uri

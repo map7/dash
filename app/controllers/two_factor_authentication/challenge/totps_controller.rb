@@ -7,7 +7,8 @@ class TwoFactorAuthentication::Challenge::TotpsController < ApplicationControlle
   end
 
   def create
-    @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "Dash")
+    issuer = Rails.env == 'development' ? 'Dash-dev' : 'Dash'
+    @totp = ROTP::TOTP.new(@user.otp_secret, issuer: issuer)
 
     if @totp.verify(params[:code], drift_behind: 15)
       sign_in_and_redirect_to_root
