@@ -10,51 +10,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_09_30_011804) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_30_023050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
   create_table "accesses", force: :cascade do |t|
-    t.integer "menu_position"
-    t.string "login"
-    t.string "password"
-    t.string "auto_login"
-    t.bigint "user_id", null: false
     t.bigint "app_id", null: false
+    t.string "auto_login"
     t.datetime "created_at", null: false
+    t.string "login"
+    t.integer "menu_position"
+    t.string "password"
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["app_id"], name: "index_accesses_on_app_id"
     t.index ["user_id"], name: "index_accesses_on_user_id"
   end
 
   create_table "apps", force: :cascade do |t|
-    t.string "name"
+    t.datetime "created_at", null: false
     t.string "description"
-    t.string "url"
     t.string "global_login"
     t.string "global_password"
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.string "url"
+  end
+
+  create_table "recovery_codes", force: :cascade do |t|
+    t.string "code", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "used", default: false, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_recovery_codes_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "ip_address"
-    t.string "user_agent"
     t.datetime "created_at", null: false
+    t.string "ip_address"
     t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email_address", null: false
-    t.string "password_digest", null: false
     t.datetime "created_at", null: false
+    t.string "email", null: false
+    t.boolean "otp_required_for_sign_in", default: false, null: false
+    t.string "otp_secret", default: "", null: false
+    t.string "password_digest", null: false
     t.datetime "updated_at", null: false
-    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.boolean "verified", default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "accesses", "apps"
   add_foreign_key "accesses", "users"
+  add_foreign_key "recovery_codes", "users"
   add_foreign_key "sessions", "users"
 end
